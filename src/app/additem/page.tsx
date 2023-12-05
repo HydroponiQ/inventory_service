@@ -16,9 +16,9 @@ const UpdateItem: React.FC = () => {
                     </div>
                 </div>
             </nav>
-            <div className='w-[294px] h-[257px] flex flex-col bg-[#d9d9d9] mx-[49px] mt-[90px] rounded-[10px]' style={{opacity:'0.6', justifyContent: 'center', alignItems: 'center' }}>
+            <div className='w-[294px] h-[257px] flex flex-col bg-[#e8e8e8] mx-[49px] mt-[90px] rounded-[10px]' style={{justifyContent: 'center', alignItems: 'center' }}>
                 <div><img src="/icons/file_upload.svg" alt="" className='w-[40px] h-[35px]'/></div>
-                <div className='' style={{fontSize:'10px'}}>Upload photo</div>
+                <div className='text-[#c8c8c8]' style={{fontSize:'11px'}}>Upload photo</div>
             </div>
 
             <div className='ml-[50px] pl-2 pt-2 mt-[30px] h-[35px] w-[294px] rounded-lg text-[#cdcdcd]' style={{fontSize:'12px', border:'2px solid #e2e2e2'}}>Item Name</div>
