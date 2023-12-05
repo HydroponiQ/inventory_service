@@ -7,7 +7,7 @@ const HomePage: React.FC = () => {
         <div className="w-screen h-screen bg-white flex flex-col items-center justify-center">
             <NavbarHydroponiq/>
             <div className="ml-[30px]">
-                <img src="/images/box.png" alt=""/>
+                <img src="/images/box.svg" alt=""/>
             </div>
             <div className="text-[#3B5A5C] text-[36px] mt-3" style={{fontWeight: 700}}>Hi, User!</div>
             <div className="text-[#67989B] text-[16px]">Keep updated with your farm</div>
