@@ -3,7 +3,7 @@
 <rect x="0.689331" y="0.272949" width="43.6841" height="68.219" fill="url(#pattern0)"/>
 </mask>
 <g mask="url(#mask0_59_4)">
-<rect x="0.307892" y="0.272949" width="44.0655" height="67.6389" fill="#ADADAD"/>
+<rect x="0.307892" y="0.272949" width="44.0655" height="67.6389" fill="#d9d9d9"/>
 </g>
 <defs>
 <pattern id="pattern0" patternContentUnits="objectBoundingBox" width="1" height="1">
