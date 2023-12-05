@@ -17,7 +17,7 @@ const UpdateItem: React.FC = () => {
                 </div>
             </nav>
             <div className='ml-[128px] text-[#3b5a5c] mt-[90px]' style={{fontSize:'24px', fontWeight: '800'}}>Item Name</div>
-            <div className='w-[294px] h-[257px] bg-[#d9d9d9] mx-[49px] mt-[40px] rounded-[10px]' style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
+            <div className='w-[294px] h-[257px] bg-[#efefef] mx-[49px] mt-[40px] rounded-[10px]' style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
                 <img src="/images/plant.svg" alt="" className='w-[102px] h-[160px]'/>
             </div>
             <div className='flex mt-[40px] mx-[135px]' style={{fontSize:'22px'}}>
