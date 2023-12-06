@@ -11,17 +11,18 @@ const UpdateItem: React.FC = () => {
                     </div>
                 </div>
             </nav>
-            <div className='ml-[128px] text-[#3b5a5c] mt-[90px]' style={{fontSize:'24px', fontWeight: '800'}}>Item Name</div>
+            <div className='ml-[128px] text-[#3b5a5c] mt-[90px]' style={{fontSize:'24px', fontWeight: '800'}}>Yield Name</div>
             <div className='w-[294px] h-[257px] bg-[#efefef] mx-[49px] mt-[40px] rounded-[10px]' style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
                 <img src="/images/plant.svg" alt="" className='w-[102px] h-[160px]'/>
             </div>
             <div className='flex mt-[40px] mx-[135px]' style={{fontSize:'22px'}}>
+                <button></button>
                 <img src="/icons/remove_circle.svg" alt="" className='w-[35px] h-[35px] mr-2'/>100
                 <img src="/icons/add_circle.svg" alt="" className='w-[35px] h-[35px] ml-2'/>
             </div>
             <div className='flex-col'>
                 <button className='mx-[109px] mt-[40px] px-[60px] py-[9px] items-center text-center text-[#F2F2F2] bg-[#3B5A5C] rounded-3xl' style={{ fontSize: '14px', display: 'flex', justifyContent: 'center', alignItems: 'center' }}>Update</button>
-                <Link href={'/inventory'}>
+                <Link href={'/yield'}>
                     <button className='text-[#9a9a9a] mt-[12px] mx-[170px]' style={{ fontSize: '14px'}}>Cancel</button>
                 </Link>
             </div>

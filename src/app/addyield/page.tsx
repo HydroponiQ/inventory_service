@@ -1,7 +1,7 @@
 import React from 'react';
 import Link from 'next/link';
 
-const UpdateItem: React.FC = () => {
+const UpdateYield: React.FC = () => {
     return (
         <div className='bg-white w-screen h-screen text-black flex flex-col items-center justify-center'>
             <nav className="bg-[#67989B] w-screen h-[67.7px] fixed top-0 left-0 right-0 flex items-center">
@@ -28,11 +28,11 @@ const UpdateItem: React.FC = () => {
                 <img src="/icons/add_circle.svg" alt="" className='w-[35px] h-[35px] ml-2'/>
             </div>
             <button className='mx-[118px] mt-[45px] px-[60px] py-[8px] items-center text-center text-[#F2F2F2] bg-[#3B5A5C] rounded-3xl' style={{ fontSize: '14px', display: 'flex', justifyContent: 'center', alignItems: 'center' }}>Save</button>
-            <Link href={'/inventory'}>
+            <Link href={'/yield'}>
                 <button className='text-[#9a9a9a] mt-[12px] mx-[170px]' style={{ fontSize: '14px'}}>Cancel</button>
             </Link>
         </div>
     );
 };
 
-export default UpdateItem;
+export default UpdateYield;

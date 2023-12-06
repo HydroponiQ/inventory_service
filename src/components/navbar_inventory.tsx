@@ -3,7 +3,7 @@ import Link from 'next/link';
 
 const NavbarInventory: React.FC = () => {
     return (
-        <nav className="bg-[#67989B] w-screen h-[67.7px] fixed top-0 left-0 right-0 flex items-center">
+        <nav className="bg-[#67989B] w-full h-[67.7px] fixed top-0 left-0 right-0 flex items-center z-10">
             <div className='flex w-screen'>
                 <div className='flex ml-[147px]'>
                     <img src="/images/Inventory.svg" alt="" />

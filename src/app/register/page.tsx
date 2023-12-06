@@ -5,7 +5,7 @@ const Register: React.FC = () => {
     <div className="w-screen h-screen bg-[#67989B] flex flex-col items-center justify-center">
       <div className="bg-[#FAFAFA] w-[290.9px] h-[331.83px] rounded-[20px]">
         <div className="mt-2 flex items-center justify-end mr-2">
-          <Link href={"/landingpage"}>
+          <Link href={"/"}>
             <img src="/icons/close.png" alt="" />
           </Link>
         </div>
