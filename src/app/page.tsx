@@ -4,7 +4,7 @@ const LandingPage: React.FC = () => {
     return (
         <div className="w-screen h-screen bg-[#67989B] flex flex-col items-center justify-center">
           <div className='ml-[21px]'>
-              <img src="/images/logo.png" alt="" />
+              <img src="/images/logo.svg" alt="" />
           </div>
           <div className='mt-10'>
               <Link href={"/register"}>

@@ -1,11 +1,11 @@
 import React from 'react';
 import Link from 'next/link';
-import NavbarHydroponiq from '@/components/navbar_hydroponiq';
+import Navbar from '@/components/navbar';
 
 const HomePage: React.FC = () => {
     return (
         <div className="w-screen h-screen bg-white flex flex-col items-center justify-center">
-            <NavbarHydroponiq/>
+            <Navbar currentUrl='/homepage' />
             <div className="ml-[30px]">
                 <img src="/images/box.svg" alt=""/>
             </div>

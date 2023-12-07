@@ -1,13 +1,13 @@
 import React from 'react';
 import Link from 'next/link';
-import NavbarInventory from '@/components/navbar_inventory';
+import Navbar from '@/components/navbar';
 
 const Inventory: React.FC = () => {
     
     return (
-        <div className='relative bg-white h-full flex flex-col items-center mt-16'>
-            <NavbarInventory/>       
-            <div className='flex mt-4'>
+        <div className='relative bg-white min-h-screen flex flex-col items-center'>
+            <Navbar currentUrl='/inventory'/>       
+            <div className='flex mt-[90px]'>
                 <div className='h-[187px] w-[137px] mr-3 bg-[#F2F2F2] rounded-[20px] text-black relative flex-col justify-center items-center' style={{ border: '1.5px solid #f2f2f2', boxShadow: '2px 2px 2px rgba(98, 98, 98, 0.13)' }}>
                     <div className='w-[119.92px] h-[98.03px] bg-[#e6e5e5] mx-auto mt-3.5 rounded-[10px]' style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
                         <img src="/images/plant.svg" alt="" />
