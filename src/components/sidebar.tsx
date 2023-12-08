@@ -1,13 +1,31 @@
 import React from 'react';
 import Link from 'next/link';
+import { useRouter } from 'next/navigation';
+import { useJsonOutput } from '@/utils/jsonOutputContext';
+import { database } from '@/utils/database';
 
 interface SidebarProps {
     setSidebar: React.Dispatch<React.SetStateAction<boolean>>;
 }
 
 const Sidebar: React.FC<SidebarProps> = ({setSidebar}) => {
+    const router = useRouter();
+    const { setJsonOutput } = useJsonOutput();
+
     const handleCloseClick = () => {
         setSidebar(false);
+    }
+
+    const handleLogout = async () => {
+        setSidebar(false);
+        try {
+            await database.auth.signOut();
+        } catch (error) {
+            return console.error(error);
+        }
+
+        setJsonOutput({ message: 'User logged out!' });
+        router.push('/');
     }
 
     return (
@@ -56,11 +74,9 @@ const Sidebar: React.FC<SidebarProps> = ({setSidebar}) => {
 
                 {/* Logout Button */}
                 <div className="mt-auto mb-[40px]">
-                    <Link href={"/"}>
-                        <button>
-                            <img src="/icons/logout.svg" alt="" />
-                        </button>
-                    </Link>
+                    <button onClick={handleLogout}>
+                        <img src="/icons/logout.svg" alt="" />
+                    </button>
                 </div>
             </div>
         </div>

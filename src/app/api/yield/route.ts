@@ -2,8 +2,10 @@ import { NextResponse } from 'next/server'
 import { database } from '@/utils/database';
  
 export async function GET(req: Request) {
+    const { id_farmer } = await req.json();
+
     try {
-        const { data } = await database.from('yield_inventory').select('*');
+        const { data } = await database.from('yield_inventory').select('*').eq('id_farmer', id_farmer);
         return NextResponse.json(data);
     } catch (error) {
         return NextResponse.error();
@@ -11,10 +13,10 @@ export async function GET(req: Request) {
 }
 
 export async function POST(req: Request) {
-    const { name, amount } = await req.json();
+    const { name, amount, image, id_farmer } = await req.json();
 
     try {
-        const { data } = await database.from('yield_inventory').upsert([{ name, amount }]).select();
+        const { data } = await database.from('yield_inventory').upsert([{ name, amount, image, id_farmer }]).select();
         return NextResponse.json(data);
     } catch (error) {
         return NextResponse.error();

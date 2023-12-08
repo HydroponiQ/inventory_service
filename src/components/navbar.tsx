@@ -38,7 +38,7 @@ const Navbar: React.FC<Navbar> = ({ currentUrl }) => {
                     </button>
                 </div>
             </div>
-            <div className={`flex fixed justify-end w-screen h-screen z-20 transition-transform ease-in-out duration-200 ${sidebar ? 'translate-x-0' : 'translate-x-full'}`}>
+            <div className={`flex fixed justify-end w-screen h-screen z-20 transition-transform ease-in-out duration-500 ${sidebar ? 'translate-x-0' : 'translate-x-full'}`}>
                 <Sidebar setSidebar={setSidebar}/>
             </div>
         </>
