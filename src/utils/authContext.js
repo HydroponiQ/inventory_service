@@ -1,6 +1,7 @@
 'use client';
 
 import React, { createContext, useContext, useEffect, useState } from 'react';
+import { usePathname } from 'next/navigation'
 import { database } from '@/utils/database';
 
 const AuthContext = createContext();
@@ -12,6 +13,7 @@ export const useAuth = () => {
 
 export const AuthProvider = ({ children }) => {
     const [id_farmer, setIdFarmer] = useState(null);
+    const pathname = usePathname();
 
     useEffect(() => {
         const checkLoginState = async () => {
@@ -22,7 +24,7 @@ export const AuthProvider = ({ children }) => {
                     const { data: logged_user } = await database.from('farmer').select('*').eq('uid', user.id);
         
                     if (logged_user) {
-                        setIdFarmer(logged_user[0].id);
+                        setIdFarmer(logged_user[0].id_user);
                     }
                 }
             } catch (error) {
@@ -31,7 +33,7 @@ export const AuthProvider = ({ children }) => {
         };
 
         checkLoginState();
-    });
+    }, [pathname]);
 
     return (
         <AuthContext.Provider value={{ id_farmer, setIdFarmer }}>

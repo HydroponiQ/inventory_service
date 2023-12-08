@@ -1,8 +1,10 @@
 import { NextResponse } from 'next/server'
 import { database } from '@/utils/database';
- 
+import { parse } from 'url'; 
+
 export async function GET(req: Request) {
-    const { id_farmer } = await req.json();
+    const { query } = parse(req.url, true);
+    const id_farmer = query.id_farmer;
 
     try {
         const { data } = await database.from('yield_inventory').select('*').eq('id_farmer', id_farmer);

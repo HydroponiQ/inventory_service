@@ -10,12 +10,26 @@ const Login: React.FC = () => {
   const router = useRouter();
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const [failedLogin, setFailedLogin] = useState(false);
   const { setJsonOutput } = useJsonOutput();
 
   const handleLogin = async () => {
+    if (email === '' || password === '') {
+      setFailedLogin(true); 
+      return;
+    }
+
     try {
       const { data: loginRes } = await database.auth.signInWithPassword({ email: email, password: password })
       if (!loginRes) throw Error('No data returned from server!');
+
+      const session = loginRes.session;
+      const user = loginRes.user;
+
+      if (!session || !user) {
+        setFailedLogin(true);
+        return;
+      }
 
       setJsonOutput(loginRes.session);
       router.push('/homepage')
@@ -37,18 +51,18 @@ const Login: React.FC = () => {
             <input 
               type="email"
               placeholder='Email'
-              className='rounded-[10px] w-[240px] h-[34px] pl-3 border-[1px] border-[#E2E2E2] text-[12px] text-black' 
+              className='rounded-[10px] w-[240px] h-[34px] pl-3 border-[1px] text-[12px] text-black' 
               onChange={(e) => setEmail(e.target.value)}
-              style={{fontWeight: 400}}
+              style={{fontWeight: 400, borderColor: failedLogin ? 'red' : '#E2E2E2'}}
             />
           </div>
           <div className="flex flex-col items-center justify-center">
             <input 
               type="password"
               placeholder='Password'
-              className='rounded-[10px] w-[240px] h-[34px] pl-3 border-[1px] border-[#E2E2E2] text-[12px] text-black' 
+              className='rounded-[10px] w-[240px] h-[34px] pl-3 border-[1px] text-[12px] text-black' 
               onChange={(e) => setPassword(e.target.value)}
-              style={{fontWeight: 400}}
+              style={{fontWeight: 400, borderColor: failedLogin ? 'red' : '#E2E2E2'}}
             />
           </div>
           <div className="flex flex-col items-center justify-center mt-7">

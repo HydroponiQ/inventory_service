@@ -11,9 +11,15 @@ const Register: React.FC = () => {
   const [username, setUsername] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const [failedRegister, setFailedRegister] = useState(false);
   const { setJsonOutput } = useJsonOutput();
 
   const handleRegister = async () => {
+    if (username === '' || email === '' || password === '') {
+      setFailedRegister(true); 
+      return;
+    }
+
     try {
       const { data } = await database.auth.signUp({ email: email, password: password })
 
@@ -21,8 +27,14 @@ const Register: React.FC = () => {
 
       if (user) {
           const { data: user_data } = await database.from('farmer').upsert([{ username: username, email: user.email, uid: user.id }]).select('*');
-          setJsonOutput(user_data);
+          
+          if (user_data) {
+            setJsonOutput(user_data);
+            return
+          }
       }
+
+      setFailedRegister(true);
     } catch (error) {
         return console.error(error);
     }
@@ -45,7 +57,7 @@ const Register: React.FC = () => {
             placeholder='Username'
             className='rounded-[10px] w-[240px] h-[34px] pl-3 border-[1px] border-[#E2E2E2] text-[12px] text-black' 
             onChange={(e) => setUsername(e.target.value)}
-            style={{fontWeight: 400}}
+            style={{fontWeight: 400, borderColor: failedRegister ? 'red' : '#E2E2E2'}}
           />
         </div>
         <div className="flex flex-col items-center justify-center my-3">
@@ -54,7 +66,7 @@ const Register: React.FC = () => {
             placeholder='Email'
             className='rounded-[10px] w-[240px] h-[34px] pl-3 border-[1px] border-[#E2E2E2] text-[12px] text-black' 
             onChange={(e) => setEmail(e.target.value)}
-            style={{fontWeight: 400}}
+            style={{fontWeight: 400, borderColor: failedRegister ? 'red' : '#E2E2E2'}}
           />
         </div>
         <div className="flex flex-col items-center justify-center">
@@ -63,7 +75,7 @@ const Register: React.FC = () => {
             placeholder='Password'
             className='rounded-[10px] w-[240px] h-[34px] pl-3 border-[1px] border-[#E2E2E2] text-[12px] text-black' 
             onChange={(e) => setPassword(e.target.value)}
-            style={{fontWeight: 400}}
+            style={{fontWeight: 400, borderColor: failedRegister ? 'red' : '#E2E2E2'}}
           />
         </div>
         <div className="flex flex-col items-center justify-center mt-8">
