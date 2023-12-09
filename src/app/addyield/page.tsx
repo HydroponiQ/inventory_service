@@ -80,7 +80,7 @@ const AddYield: React.FC = () => {
                 <input type="file" ref={imageRef} onChange={handleImageChange} className="hidden" accept="image/*"/>
                 {!image ? (
                     <div>
-                        <img src="/icons/file_upload.svg" alt="" className='w-[40px] h-[35px]'/>
+                        <img src="/icons/file_upload.svg" alt="" className='ml-4 mb-1 w-[40px] h-[35px]'/>
                         <div className='text-[#c8c8c8]' style={{fontSize:'11px'}}>Upload photo</div>
                     </div>
                 ) : (
