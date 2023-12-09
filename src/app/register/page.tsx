@@ -54,6 +54,8 @@ const Register: React.FC = () => {
         <div className="flex flex-col items-center justify-center mt-7 my-3">
           <input 
             type="username"
+            name='username'
+            id='username'
             placeholder='Username'
             className='rounded-[10px] w-[240px] h-[34px] pl-3 border-[1px] border-[#E2E2E2] text-[12px] text-black' 
             onChange={(e) => setUsername(e.target.value)}
@@ -63,6 +65,8 @@ const Register: React.FC = () => {
         <div className="flex flex-col items-center justify-center my-3">
           <input 
             type="email"
+            name='email'
+            id='email'
             placeholder='Email'
             className='rounded-[10px] w-[240px] h-[34px] pl-3 border-[1px] border-[#E2E2E2] text-[12px] text-black' 
             onChange={(e) => setEmail(e.target.value)}
@@ -72,6 +76,8 @@ const Register: React.FC = () => {
         <div className="flex flex-col items-center justify-center">
           <input 
             type="password"
+            name='password'
+            id='password'
             placeholder='Password'
             className='rounded-[10px] w-[240px] h-[34px] pl-3 border-[1px] border-[#E2E2E2] text-[12px] text-black' 
             onChange={(e) => setPassword(e.target.value)}
