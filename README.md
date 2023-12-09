@@ -1,36 +1,26 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# HydroponiQ
 
-## Getting Started
+HydroponiQ adalah sebuah layanan inovatif yang menerapkan konsep *Smart Farming* dengan fokus utama pada budidaya tanaman hidroponik. HydroponiQ ini meliputi pengadaan material, penanaman dan pemeliharaan, panen dan produksi, pemasaran dan distribusi, serta pengelolaan keuangan. 
 
-First, run the development server:
+## Set Up & Installation
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+- Clone repository "https://github.com/HydroponiQ/inventory_service.git" 
+- Instal dependencies yang dibutuhkan untuk nodejs: ```npm i```
+- Jalankan aplikasi dengan perintah: ```npm run dev```
+- Buka [http://localhost:3000](http://localhost:3000) dengan browser untuk melihat hasilnya.
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## How to Use
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+1. Ketika membuka website, user diharuskan untuk login terlebih dahulu. Jika user belum memiliki akun, user dapat melakukan registrasi di menu register. Setelah registrasi, user dapat login dengan akun tersebut.
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+2. Setelah login, user akan masuk ke halaman home page yang berisikan pilihan menu **_inventory_**  atau **_yield_**. 
 
-## Learn More
+3. Pada menu **_inventory_**, user dapat meletakkan persediaan alat dan bahan pertanian, sedangkan pada menu **_yield_**, user dapat meletakkan hasil panen. Secara default, kedua menu tersebut kosong sehingga user harus memasukkan data terlebih dahulu
 
-To learn more about Next.js, take a look at the following resources:
+4. Jika terdapat perubahan pada item yang sudah tersedia, user dapat melakukan update pada inventory ataupun yield dengan menekan tombol **Update**. User dapat merubah kuantitas item yang dipilih dan menekan tombol update ketika sudah selesai.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+5. Jika user mau menambahkan item pada menu inventory atau yield, user dapat menekan tombol **Add new item**. User dapat menambahkan nama item, kuantitas, dan foto dari item tersebut lalu menekan tombol save ketika sudah selesai.
 
 ## Deploy on Vercel
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+[HydroponiQ](https://hydroponiq.vercel.app/) 
