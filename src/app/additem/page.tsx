@@ -1,10 +1,12 @@
 'use client'
 
-import React, { useState } from 'react';
+import React, { useState, useRef } from 'react';
 import Link from 'next/link';
 import { useAuth } from '@/utils/authContext';
 import { useJsonOutput } from '@/utils/jsonOutputContext';
 import { useRouter } from 'next/navigation';
+
+import { database } from '@/utils/database';
 
 const AddItem: React.FC = () => {
     const { id_farmer } = useAuth();
@@ -13,8 +15,37 @@ const AddItem: React.FC = () => {
 
     const [name, setName] = useState('');
     const [amount, setAmount] = useState(0);
-
+    const [image, setImage] = useState(null as any);
+    const [imageUp, setImageUp] = useState(null as any);
+    const imageRef = useRef('' as any);
+  
+    const handleImageChange = (e : any) => {
+      const file = e.target.files[0];
+      if (file && file.type.substr(0, 5) === "image") {
+        setImage(URL.createObjectURL(file))
+        setImageUp(file) 
+      }
+    };
+    
     const handleSubmit = async () => {
+        const pict_name = `picture/${id_farmer}-${name}.png` as string
+        const { error } = await database.storage.from('items').upload(
+            pict_name,
+            imageUp,
+            {
+                contentType: 'image/png',
+            }
+        )
+
+        var pict_url;
+        if (error) {
+            console.log(error);
+            return;
+        } else {
+            const { data } = database.storage.from('items').getPublicUrl(pict_name);
+            pict_url = data.publicUrl;
+        }
+
         const res = await fetch('/api/material', {
             method: 'POST',
             headers: {
@@ -23,7 +54,7 @@ const AddItem: React.FC = () => {
             body: JSON.stringify({
                 name: name,
                 amount: amount,
-                image: null,
+                image: pict_url,
                 id_farmer: id_farmer,
             })
         })
@@ -45,11 +76,16 @@ const AddItem: React.FC = () => {
                     <img src="/images/logo_additem.svg" alt="" />
                 </div>
             </nav>
-            <div className='w-[294px] h-[257px] flex flex-col bg-[#e8e8e8] mt-[90px] rounded-[10px]' style={{justifyContent: 'center', alignItems: 'center' }}>
-                <div>
-                    <img src="/icons/file_upload.svg" alt="" className='w-[40px] h-[35px]'/>
-                </div>
-                <div className='text-[#c8c8c8]' style={{fontSize:'11px'}}>Upload photo</div>
+            <div className='w-[294px] h-[257px] flex flex-col bg-[#e8e8e8] mx-[49px] mt-[90px] rounded-[10px]' style={{justifyContent: 'center', alignItems: 'center' }} onClick={() => imageRef.current.click()}>
+                <input type="file" ref={imageRef} onChange={handleImageChange} className="hidden" accept="image/*"/>
+                {!image ? (
+                    <div>
+                        <img src="/icons/file_upload.svg" alt="" className='w-[40px] h-[35px]'/>
+                        <div className='text-[#c8c8c8]' style={{fontSize:'11px'}}>Upload photo</div>
+                    </div>
+                ) : (
+                    <img src={image} alt="" className="w-full h-full object-cover object-center"/>
+                )}
             </div>
             <input 
                 type="text"

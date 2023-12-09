@@ -44,7 +44,7 @@ const Inventory: React.FC = () => {
                     items.map((item: any, key: number) => (
                     <div key={key} className='h-[187px] w-[137px] mr-3 mb-3 bg-[#F2F2F2] rounded-[20px] text-black relative flex-col justify-center items-center' style={{ border: '1.5px solid #f2f2f2', boxShadow: '2px 2px 2px rgba(98, 98, 98, 0.13)' }}>
                         <div className='w-[119.92px] h-[98.03px] bg-[#e6e5e5] mx-auto mt-3.5 rounded-[10px]' style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
-                            <img src="/images/plant.svg" alt="" />
+                            <img src={item.image} alt="" style={{maxWidth:'100%', height:'100%'}}/>
                         </div>
                         <div className='text-center font-bold mt-1 text-[#3B5A5C] ' style={{ fontSize: '14px' }}>{item.name}</div>
                         <div className='flex text-center justify-center'>
