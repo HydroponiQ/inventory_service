@@ -56,7 +56,7 @@ const UpdateYield: React.FC = () => {
             </nav>
             <div className='text-[#3b5a5c] mt-[90px]' style={{fontSize:'24px', fontWeight: '800'}}>{name}</div>
             <div className='w-[294px] h-[257px] bg-[#efefef] mx-[49px] mt-[20px] rounded-[10px]' style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
-                <img src="/images/plant.svg" alt="" className='w-[102px] h-[160px]'/>
+                <img src={item.image} alt="" style={{maxWidth:'100%', height:'100%'}}/>
             </div>
             <div className='flex items-center mt-[30px] mr-3 gap-1' style={{fontSize:'22px'}}>
                 <button 
