@@ -38,7 +38,14 @@ const Navbar: React.FC<Navbar> = ({ currentUrl }) => {
                     </button>
                 </div>
             </div>
-            <div className={`flex fixed justify-end w-screen h-screen z-20 transition-transform ease-in-out duration-500 ${sidebar ? 'translate-x-0' : 'translate-x-full'}`}>
+            { sidebar && (
+                <div className="fixed w-screen h-screen bg-black opacity-30 z-10"/>
+            )}
+            <div 
+                className={`flex fixed justify-end w-screen h-screen z-20 transition-transform ease-in-out duration-500 ${sidebar ? 'translate-x-0' : 'translate-x-full'}`}
+                onClick={handleMenuClick}
+            >
+                
                 <Sidebar setSidebar={setSidebar}/>
             </div>
         </>

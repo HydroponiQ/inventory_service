@@ -39,13 +39,13 @@ const AddItem: React.FC = () => {
     }
 
     return (
-        <div className='bg-white w-screen h-screen flex flex-col items-center justify-center'>
+        <div className='bg-white w-screen min-h-screen flex flex-col items-center'>
             <nav className="bg-[#67989B] w-screen h-[67.7px] fixed top-0 left-0 right-0 flex items-center">
                 <div className='flex mt-1 w-screen justify-center'>
                     <img src="/images/logo_additem.svg" alt="" />
                 </div>
             </nav>
-            <div className='w-[294px] h-[257px] flex flex-col bg-[#e8e8e8] mx-[49px] mt-[90px] rounded-[10px]' style={{justifyContent: 'center', alignItems: 'center' }}>
+            <div className='w-[294px] h-[257px] flex flex-col bg-[#e8e8e8] mt-[90px] rounded-[10px]' style={{justifyContent: 'center', alignItems: 'center' }}>
                 <div>
                     <img src="/icons/file_upload.svg" alt="" className='w-[40px] h-[35px]'/>
                 </div>
@@ -99,7 +99,7 @@ const AddItem: React.FC = () => {
                 Save
             </button>
             <Link href={'/inventory'}>
-                <button className='text-[#9a9a9a] mt-[12px] mx-[170px]' style={{ fontSize: '14px'}}>Cancel</button>
+                <button className='text-[#9a9a9a] mt-[12px]' style={{ fontSize: '14px'}}>Cancel</button>
             </Link>
         </div>
     );
